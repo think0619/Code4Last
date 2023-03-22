@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Videos\00\test.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibVLCSharp.WinForms" Version="3.6.8" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Videos\05\" />
+    <Folder Include="Videos\04\" />
+    <Folder Include="Videos\03\" />
+    <Folder Include="Videos\02\" />
+    <Folder Include="Videos\01\" />
+    <Folder Include="Videos\06\" />
+    <Folder Include="Videos\07\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Videos\00\test.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
