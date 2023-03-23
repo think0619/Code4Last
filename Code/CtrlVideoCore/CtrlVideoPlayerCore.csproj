@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Videos\00\test.mp4" />
+    <None Remove="Videos\01\01.MP4" />
+    <None Remove="Videos\01\test1.mp4" />
+    <None Remove="Videos\02\02.MP4" />
+    <None Remove="Videos\02\test2.mp4" />
+    <None Remove="Videos\03\03.MP4" />
+    <None Remove="Videos\04\04.MP4" />
+    <None Remove="Videos\05\05.MP4" />
+    <None Remove="Videos\06\06.MP4" />
+    <None Remove="Videos\07\07.MP4" />
+    <None Remove="Videos\07\test7.mp4" />
+    <None Remove="Videos\08\08.MP4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,19 +28,38 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Videos\05\" />
-    <Folder Include="Videos\04\" />
-    <Folder Include="Videos\03\" />
-    <Folder Include="Videos\02\" />
-    <Folder Include="Videos\01\" />
-    <Folder Include="Videos\06\" />
-    <Folder Include="Videos\07\" />
+    <Folder Include="Videos\00\" />
+    <Folder Include="Videos\09\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Videos\00\test.mp4">
+    <Content Include="Videos\02\02.MP4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Videos\03\03.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\04\04.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\05\05.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\06\06.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\07\07.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\08\08.MP4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Videos\01\test.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
