@@ -1,7 +1,7 @@
 # Code4Last
 就当是一些最后的Code吧
 
-*过得有点不顺，处在生命低谷，确实看清些事，也看不清一些，愿自己能站起来*
+*过得有点不顺，处在生命低谷期，确实看清些事，也更看不清一些，愿自己能站起来吧*
 > So we beat on, boats against the current, borne back ceaselessly into the past.
 
 
