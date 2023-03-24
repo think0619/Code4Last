@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             this.videoView1 = new LibVLCSharp.WinForms.VideoView();
             ((System.ComponentModel.ISupportInitialize)(this.videoView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.videoView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainFrm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.videoView1)).EndInit();
