@@ -57,7 +57,7 @@ namespace TextVoiceServer.Serivices
                     {
                         System.Timers.Timer sendConnectionTimer = new System.Timers.Timer();
                         sendConnectionTimer.Enabled = true;
-                        sendConnectionTimer.Interval = 10 * 1000; //执行间隔时间,单位为毫秒; 
+                        sendConnectionTimer.Interval = 10 *60* 1000; //执行间隔时间,单位为毫秒; 
                         sendConnectionTimer.Start();
                         sendConnectionTimer.Elapsed += (e, v) =>
                         {

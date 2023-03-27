@@ -193,8 +193,7 @@ namespace CtrlVideoCore
         public void InitVideoPlayer()
         {
             videoView1.MediaPlayer = new MediaPlayer(libvlc);
-            videoView1.Dock = DockStyle.Fill;
-
+            videoView1.Dock = DockStyle.Fill; 
             videoView1.MediaPlayer.EndReached += (s, e1) =>
             {
                 //¡–±Ì—≠ª∑

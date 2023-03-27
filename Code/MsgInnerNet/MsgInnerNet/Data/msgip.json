@@ -2,23 +2,16 @@
   {
     "Index": 0,
     "Key": "ParkModel",
-    "Name": "模型",
+    "Name": "22",
     "IPAddress": "10.10.20.243",
     "Port": 12389
   },
   {
     "Index": 1,
     "Key": "ParkModel2",
-    "Name": "模型 互动软件",
+    "Name": "xxx",
     "IPAddress": "10.10.20.145",
     "Port": 12389
-  },
-  {
-    "Index": 2,
-    "Key": "ParkModel",
-    "Name": "test",
-    "IPAddress": "10.10.8.237",
-    "Port": 12389
-  }
+  }, 
 
 ]

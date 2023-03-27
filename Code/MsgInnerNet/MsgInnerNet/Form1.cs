@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,7 +41,7 @@ namespace MsgInnerNet
 
             InitNetMQ();
 
-            System.Timers.Timer timer = new System.Timers.Timer(1 * 60 * 1000);
+            System.Timers.Timer timer = new System.Timers.Timer(10 * 60 * 1000);
             timer.Elapsed += async (obj, e) =>
             {
                 await ConnectServiceAsync();
@@ -87,8 +88,8 @@ namespace MsgInnerNet
                                 {
                                     List<string> msgList = JsonHelper.JsonHelper.DeserializeJsonToList<string>(cmdmsg);
                                     // udp
-                                    // midmsg@cmd${key}${content}
-                                    // midmsg@cmd$video$xxx 
+                                    // `cmd$Model$m1_open01`
+                                    // `cmd$PC$V4DES_Video_PV01`
 
                                     List<TransferMsg> msgs = new List<TransferMsg>();
                                     foreach (string msg in msgList)
@@ -112,10 +113,17 @@ namespace MsgInnerNet
                                         }
                                     }
                                     if (msgs.Count > 0)
-                                    {
+                                    { 
+                                        // `cmd$Model$m1_open01`
+                                        // `cmd$PC$V4DES_Video_PV01`
                                         var models = msgs.Select(msg => msg.Model).Distinct().ToList();
                                         foreach (var model in models)
                                         {
+                                           
+                                            
+                                            
+                                            
+                                            
                                             var thisModelIPs = Program.IPConfigList.Where(x => x.FormatKey.Equals(model, StringComparison.OrdinalIgnoreCase))?.ToList();
                                             var thisModelMsgs = msgs.Where(x => x.Model.Equals(model, StringComparison.OrdinalIgnoreCase))?.ToList();
 
@@ -204,7 +212,7 @@ namespace MsgInnerNet
                         }
                     }
                 }
-                catch
+                catch(Exception e)
                 {
                     return "";
                 }
