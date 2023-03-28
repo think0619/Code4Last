@@ -25,7 +25,7 @@ namespace Entities.Common
             } 
         }
 
-        public String Name { get; set; }
+        public String Name { get; set; } 
         public String IPAddress { get; set; }
         public int Port { get; set; }
         public String Remark { get; set; }

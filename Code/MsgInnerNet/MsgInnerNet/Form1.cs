@@ -103,48 +103,83 @@ namespace MsgInnerNet
                                                 string content = cmdSplit[2];
                                                 if (!String.IsNullOrWhiteSpace(key) && !String.IsNullOrWhiteSpace(content))
                                                 {
-                                                    msgs.Add(new TransferMsg()
-                                                    {
-                                                        Model = key.Trim(),
-                                                        Content = content.Trim(),
-                                                    });
+                                                    msgs.Add(new TransferMsg(key.Trim(), content.Trim()));
                                                 }
                                             }
                                         }
                                     }
                                     if (msgs.Count > 0)
-                                    { 
-                                        // `cmd$Model$m1_open01`
-                                        // `cmd$PC$V4DES_Video_PV01`
+                                    {
                                         var models = msgs.Select(msg => msg.Model).Distinct().ToList();
                                         foreach (var model in models)
                                         {
-                                           
-                                            
-                                            
-                                            
-                                            
-                                            var thisModelIPs = Program.IPConfigList.Where(x => x.FormatKey.Equals(model, StringComparison.OrdinalIgnoreCase))?.ToList();
-                                            var thisModelMsgs = msgs.Where(x => x.Model.Equals(model, StringComparison.OrdinalIgnoreCase))?.ToList();
-
-                                            if (thisModelIPs != null && thisModelMsgs != null)
+                                            // `PC$V4DES_Video_PV01`
+                                            //广播
+                                            if ("PC".Equals(model, StringComparison.OrdinalIgnoreCase))
                                             {
-                                                foreach (IPConfig modelIP in thisModelIPs)
+                                                var pcMsgs = msgs.Where(x => x.Model.Equals(model, StringComparison.OrdinalIgnoreCase))?.ToList();
+
+                                                if (pcMsgs != null && pcMsgs != null)
                                                 {
-                                                    if (UDPHelper.ValidateIPv4(modelIP.IPAddress) && modelIP.Port > 0 && modelIP.Port < 65536)
+                                                    var thisPCIP = Program.IPConfigList.Where(x => x.FormatKey.Equals(model, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                                                    if (thisPCIP != null)
                                                     {
-                                                        Task.Factory.StartNew(() =>
-                                                        { 
-                                                            var udpclient = new EchoClient(modelIP.IPAddress, modelIP.Port);
-                                                            udpclient.Connect();
-                                                            thisModelMsgs.ForEach(msg =>
+                                                        if (UDPHelper.ValidateIPv4(thisPCIP.IPAddress) && thisPCIP.Port > 0 && thisPCIP.Port < 65536)
+                                                        {
+                                                            Task.Factory.StartNew(() =>
                                                             {
-                                                                udpclient.Send(msg.Content);
+                                                                var udpclient = new EchoClient(thisPCIP.IPAddress, thisPCIP.Port);
+                                                                udpclient.Connect();
+                                                                pcMsgs.ForEach(msg =>
+                                                                {
+                                                                    udpclient.Send(msg.Content);
+                                                                });
+                                                                udpclient.DisconnectAndStop();
                                                             });
-                                                            udpclient.DisconnectAndStop();
-                                                        });
+                                                        }
                                                     }
-                                                } 
+                                                }
+                                            }
+                                            // `Model$m1_open01`
+                                            //单播
+                                            //模型控制器受实际情况限制，得设置静态IP
+                                            else if ("Model".Equals(model, StringComparison.OrdinalIgnoreCase))
+                                            {
+                                                List<TransferMsg> modelMsgList = new List<TransferMsg>() { };
+                                                var modelMsgs = msgs.Where(x => x.Model.Equals(model, StringComparison.OrdinalIgnoreCase))?.ToList();
+                                                foreach (var _ModelMsg in modelMsgs)
+                                                {
+                                                    string[] modelCmds = _ModelMsg.Content?.Split(new[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
+                                                    if (modelCmds.Length > 1)
+                                                    {
+                                                        modelMsgList.Add(new TransferMsg(modelCmds[0], modelCmds[1]));
+                                                    }
+                                                }
+                                                if (modelMsgList?.Count > 0)
+                                                {
+                                                    var modelNames = modelMsgList.Select(msg => msg.Model).Distinct().ToList();
+                                                    foreach (var modelName in modelNames)
+                                                    {
+                                                        var oneModelMsg = modelMsgList.Where(m => modelName.Equals(m.Model)).ToList();
+                                                        var thisPCIP = Program.IPConfigList.Where(x => x.Name.Equals(modelName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                                                        if (thisPCIP != null)
+                                                        {
+                                                            if (UDPHelper.ValidateIPv4(thisPCIP.IPAddress) && thisPCIP.Port > 0 && thisPCIP.Port < 65536)
+                                                            {
+                                                                Task.Factory.StartNew(() =>
+                                                                {
+                                                                    var udpclient = new EchoClient(thisPCIP.IPAddress, thisPCIP.Port);
+                                                                    udpclient.Connect();
+                                                                    oneModelMsg.ForEach(msg =>
+                                                                    {
+                                                                        udpclient.Send(msg.Content);
+                                                                    });
+                                                                    udpclient.DisconnectAndStop();
+                                                                });
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -165,7 +200,7 @@ namespace MsgInnerNet
                 this.msglogBox.AppendText(log);
                 // msglogBox.BeginInvoke(new MethodInvoker(delegate { msglogBox.AppendText(log); }));
             }
-        } 
+        }
         private async void button1_Click(object sender, EventArgs e)
         {
             var result = await ConnectServiceAsync();
@@ -212,7 +247,7 @@ namespace MsgInnerNet
                         }
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     return "";
                 }

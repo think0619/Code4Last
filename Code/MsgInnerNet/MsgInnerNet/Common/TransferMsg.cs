@@ -12,5 +12,11 @@ namespace MsgInnerNet.Common
         public String Model { get; set; } 
         public String Content { get; set; }
         public String Remark { get; set; }
+
+        public TransferMsg(string _Model,string _Content) 
+        {
+            Model= _Model;
+            Content= _Content;
+        }
     }
 }

@@ -1,17 +1,27 @@
 [
   {
     "Index": 0,
-    "Key": "ParkModel",
-    "Name": "22",
-    "IPAddress": "10.10.20.243",
-    "Port": 12389
+    "Key": "Model",
+    "Name": "M1",
+    "Remark": "模型1",
+    "IPAddress": "10.10.8.177",
+    "Port": 47147
   },
   {
     "Index": 1,
-    "Key": "ParkModel2",
-    "Name": "xxx",
-    "IPAddress": "10.10.20.145",
-    "Port": 12389
-  }, 
+    "Key": "Model",
+    "Name": "M2",
+    "Remark": "模型2",
+    "IPAddress": "10.10.8.177",
+    "Port": 47147
+  },
+  {
+    "Index": 2,
+    "Key": "PC",
+    "Name": "PCBroadcast",
+    "Remark": "广播",
+    "IPAddress": "10.10.20.255",
+    "Port": 47147
+  }
 
 ]
