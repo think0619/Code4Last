@@ -27,7 +27,7 @@ namespace MsgInnerNet
             List<IPConfig> ipdataList = JsonHelper.JsonHelper.DeserializeJsonToList<IPConfig>(ipdata);
             IPConfigList = ipdataList;
 
-            Application.Run(new Form1());
+            Application.Run(new MainFrm());
         }
     }
 }

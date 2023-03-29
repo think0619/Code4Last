@@ -20,7 +20,7 @@ using System.Windows.Forms;
 
 namespace MsgInnerNet
 {
-    public partial class Form1 : Form
+    public partial class MainFrm : Form
     {
         public string ServerMQUrl = string.Empty;
         public SubscriberSocket subscriberSocket = null;
@@ -32,7 +32,7 @@ namespace MsgInnerNet
         /// </summary>
         public static string TestConnectionString = "TestConnection";
 
-        public Form1()
+        public MainFrm()
         {
             InitializeComponent();
 
@@ -50,11 +50,31 @@ namespace MsgInnerNet
             timer.Enabled = true;
             timer.Start();
 
+            this.Load += (a,b) => {
+                clearMsglogBox();
+            }; 
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
         {
             this.msglogBox.Text = String.Empty;
+        }
+
+        private void clearMsglogBox()
+        {
+            System.Timers.Timer timer = new System.Timers.Timer(1 * 60 * 1000);
+            timer.Elapsed +=   (obj, e) =>
+            {
+                if (this.msglogBox.Text.Length > 1000) 
+                {
+                    msglogBox.BeginInvoke(new MethodInvoker(delegate {
+                        this.msglogBox.Text = String.Empty;
+                    }));
+                };
+            };
+            timer.AutoReset = true;
+            timer.Enabled = true;
+            timer.Start(); 
         }
 
 
@@ -201,11 +221,11 @@ namespace MsgInnerNet
                 // msglogBox.BeginInvoke(new MethodInvoker(delegate { msglogBox.AppendText(log); }));
             }
         }
+      
         private async void button1_Click(object sender, EventArgs e)
         {
             var result = await ConnectServiceAsync();
-        }
-
+        } 
 
         public async Task<string> ConnectServiceAsync()
         {
@@ -213,7 +233,7 @@ namespace MsgInnerNet
             {
                 var testmsg = new
                 {
-                    Msg = new List<string> { "...test connect msg..." },
+                    Msg = new List<string> { "...test connection msg..." },
                     Sender = "zhkjdev"
                 };
 
@@ -222,7 +242,7 @@ namespace MsgInnerNet
                 var request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "POST";
                 request.ContentType = "application/json";
-                request.Timeout = 3 * 1000;
+                request.Timeout = 5 * 1000;
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
                     streamWriter.Write(JsonHelper.JsonHelper.SerializeObject(testmsg));
@@ -250,8 +270,7 @@ namespace MsgInnerNet
                 catch (Exception e)
                 {
                     return "";
-                }
-                // await request.GetResponseAsync();
+                } 
             }
         }
     }

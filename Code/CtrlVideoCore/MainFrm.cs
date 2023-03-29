@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace CtrlVideoCore
 {
@@ -196,6 +197,7 @@ namespace CtrlVideoCore
             videoView1.Dock = DockStyle.Fill; 
             videoView1.MediaPlayer.EndReached += (s, e1) =>
             {
+                var x=videoView1.MediaPlayer.Media.Duration;
                 //¡–±Ì—≠ª∑
                 if (videoPlayMode == VideoPlayMode.ListCycle)
                 {
@@ -227,7 +229,7 @@ namespace CtrlVideoCore
                 }
                 videoCurrentIndex++;
             }
-            var firstMedia = new Media(libvlc, new Uri(videoFilePath[videoCurrentIndex]));
+            var firstMedia = new Media(libvlc, new Uri(videoFilePath[videoCurrentIndex])); 
             this.videoView1.MediaPlayer?.Play(firstMedia);
         } 
 

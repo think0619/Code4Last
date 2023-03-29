@@ -58,8 +58,13 @@ namespace TextVoiceServer.Message
                     {
                         if (receiveMsg.Msg!=null) 
                         {
-                            long len1 = RedisHelper.LPush("ControlMsg", receiveMsg.Msg);
-                            tipResult.Msg = String.Format($"success:{len1}");
+                            //long len1 = 0;
+                            foreach (var msg in receiveMsg.Msg)
+                            { 
+                                RedisHelper.RPush("ControlMsg", new List<string>() { msg }); 
+                            }
+                            //RedisHelper.RPush("ControlMsg", receiveMsg.Msg);
+                            tipResult.Msg = String.Format($"success:{receiveMsg.Msg.Count}");
                         } 
                     }
                     catch (Exception ex)
