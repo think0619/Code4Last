@@ -17,6 +17,7 @@ namespace CtrlVideoCore
         internal string[] videoFilePath = new string[10]; 
         //当前视频播放索引
         int videoCurrentIndex = 0;
+        int videoCurrentPlayCount = 0;
         int videoValidCount = 0;
         //视频循环播放模式,default is list cycle
         VideoPlayMode videoPlayMode = VideoPlayMode.ListCycle;
@@ -24,6 +25,9 @@ namespace CtrlVideoCore
         //设备标识码
         string GUID = "ABCDE";
         int UdpListenPort = 47147;
+
+        
+
 
         public MainFrm()
         {
@@ -197,18 +201,35 @@ namespace CtrlVideoCore
             videoView1.Dock = DockStyle.Fill; 
             videoView1.MediaPlayer.EndReached += (s, e1) =>
             {
-                var x=videoView1.MediaPlayer.Media.Duration;
+                //单个循环时 超过设定时常 改为列表循环
+                int setSeconds = 120;
+                string _SingleVideoCycleMaxSecs = ConfigurationManager.AppSettings["SingleVideoCycleMaxSecs"].ToString();
+                Int32.TryParse(_SingleVideoCycleMaxSecs, out setSeconds);
+                if (videoPlayMode == VideoPlayMode.SingleCycle)
+                {
+                    var playDuration = (videoView1.MediaPlayer.Media.Duration / 1000) * videoCurrentPlayCount;
+                    if (setSeconds <= playDuration)
+                    {
+                        videoPlayMode = VideoPlayMode.ListCycle;
+                    }
+                }
+
                 //列表循环
                 if (videoPlayMode == VideoPlayMode.ListCycle)
                 {
                     while (true)
                     {
                         videoCurrentIndex = (++videoCurrentIndex) % videoFilePath.Length;
+                        videoCurrentPlayCount = 1;
                         if (File.Exists(videoFilePath[videoCurrentIndex]))
                         {
                             break;
                         }
                     }
+                }
+                else 
+                {
+                    videoCurrentPlayCount++;
                 }
                
                 //单个循环
@@ -223,6 +244,7 @@ namespace CtrlVideoCore
             while (true)
             {
                 videoCurrentIndex = (videoCurrentIndex) % videoFilePath.Length;
+                videoCurrentPlayCount = 1;
                 if (File.Exists(videoFilePath[videoCurrentIndex]))
                 {
                     break;
@@ -260,7 +282,8 @@ namespace CtrlVideoCore
                     videoCurrentIndex = switchIndex - 1;
 
                     var _media = new Media(libvlc, new Uri(videoFilePath[videoCurrentIndex]));
-                    this.videoView1.MediaPlayer?.Play(_media); 
+                    this.videoView1.MediaPlayer?.Play(_media);
+                    videoCurrentPlayCount = 1;
                 }
             }
         }
