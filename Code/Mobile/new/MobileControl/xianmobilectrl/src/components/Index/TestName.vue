@@ -1,22 +1,34 @@
 <template>
-  <van-nav-bar title="Title" left-text="Back" left-arrow />
-  <h1>{{ name }}</h1>
+  <div id="nav">
+
+    <van-nav-bar v-bind:title=title  :fixed=true />
+  </div>
+
+<div class="mainbody"> 
   <h1>{{ a1 }}</h1>
-  <van-button type="primary" @click="clickDemo()">Primary</van-button>
 
+    <div style="margin-bottom:50px">
+      <van-config-provider :theme-vars="themeVars">
+    <van-button type="primary" @click="clickDemo()" >Primary</van-button>
 
+        <van-tabbar v-model="active" @change="onChange"
+        safe-area-inset-bottom="true"
+          active-color="#3385ff" inactive-color="#000"
+         > 
+          <van-tabbar-item icon="home-o" badge="5">绿色能源</van-tabbar-item>
+          <van-tabbar-item icon="search" dot>智慧城市</van-tabbar-item>
+          <van-tabbar-item icon="friends-o" badge="5">智慧工厂</van-tabbar-item>
+          <van-tabbar-item icon="setting-o" dot>智慧煤矿</van-tabbar-item>
+        </van-tabbar>
+      </van-config-provider>
+      </div>
+</div> 
 
-  <van-tabbar v-model="active"  @change="onChange">
-  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="search">标签</van-tabbar-item>
-  <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-</van-tabbar>
 </template>
 
 <script>
 import { ref } from 'vue'; 
-import { Button, NavBar, Tabbar, TabbarItem,showToast } from 'vant';
+import { Button, NavBar , Tabbar, TabbarItem,Toast  } from 'vant';
  
 
 
@@ -25,49 +37,62 @@ export default {
   components: {
     [Button.name]: Button,
     [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem, 
+    [NavBar.name]: NavBar,
+    [TabbarItem.name]: TabbarItem 
   },
   props: {
 
   },
   data() {
     return {
-      a1: '11a'
+      title: '展会中控'
     }
   },
   methods: {
     clickDemo() {
       alert('hi');
+    },
+    onChange(index) {
+//       Toast.loading({
+//   message: 'Loading...',
+//   forbidClick: true,
+// });
     }
   },
   setup() {
-    const active = ref(0);
-    const onChange = (index) => showToast(`标签 ${index}`);
-    return {
-      icon,
-      onChange,
+    const active = ref('home');
+
+    const themeVars = { 
+      tabbarHeight:'50px',
+      tabbarItemIconSize:'26px',
+      tabbarItemFontSize:'var(--van-font-size-sm)',
     };
+
+    return { active,themeVars };
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped> 
 h3 {
   margin: 40px 0 0;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.mainbody{
+  margin-top: 60px;;
+}
+ 
+.van-nav-bar {
+  background-color:#2f97ec;
+}
+#nav /deep/ .van-nav-bar__title{
+  color: white !important;
+  font-size: 1rem;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+</style>
 
-a {
-  color: #42b983;
-}
+<style>
+
 </style>
