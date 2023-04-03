@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     clickDemo() {
-      alert('hi');
+      location.href="http://10.10.20.243:8080/#/main";
     },
     onChange(index) {
 //       Toast.loading({

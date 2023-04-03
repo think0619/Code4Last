@@ -9,15 +9,22 @@ const routes = [
     //     redirect: '/goods'
     // },
     {
-        name: 'user',
+        name: 'exhi',
         component: () =>
-            import ('./view/user'),
+            import ('./view/exhibition'),
         meta: {
             title: '会员中心'
         }
+    }, {
+        name: '',
+        component: () =>
+            import ('./view/exhibition/main'),
+        meta: {
+            title: '展区中控'
+        }
     },
     {
-        name: 'haha',
+        name: 'cart',
         component: () =>
             import ('./view/cart/'),
         meta: {
@@ -26,21 +33,29 @@ const routes = [
     },
 
     {
-        name: '/card',
+        name: 'user',
         component: () =>
-            import ('./view/verify'),
+            import ('./view/user'),
+        meta: {
+            title: '会员中心'
+        }
+    },
+    {
+        name: 'card',
+        component: () =>
+            import ('./view/card'),
         meta: {
             title: '购物车'
         }
     },
-    {
-        name: '/goods',
-        component: () =>
-            import ('./view/goods'),
-        meta: {
-            title: '商品详情'
-        }
-    }
+    // {
+    //     name: 'goods',
+    //     component: () =>
+    //         import ('./view/goods'),
+    //     meta: {
+    //         title: '商品详情'
+    //     }
+    // }
 ];
 
 // add route path
