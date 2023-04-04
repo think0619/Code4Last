@@ -1,43 +1,54 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, createWebHistory, } from 'vue-router';
+
+
+
 const routes = [{
-        name: 'notFound',
-        path: '/:path(.*)+',
-        redirect: {
-            name: 'main',
+        path: '/',
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        name: '首页',
+        component: import ('./view/home'),
+        meta: {
+            title: '新技术、新工艺、新装备',
         },
     },
     {
-        name: 'main',
         path: '/main',
-        component: () =>
-            import ('./view/main'),
-        meta: {
-            title: 'ceshi',
-        },
-    },
-    {
-        name: 'user',
-        path: '/user',
-        component: () =>
-            import ('./view/user'),
-        meta: {
-            title: '会员中心',
-        },
+        name: '标签页面',
+        component: import ('./view/main'),
         children: [{
-                path: '', //首页是默认子路由，所谓为空
-                name: '/home',
+                name: 't1',
+                path: 't1',
                 component: () =>
-                    import ('@/view/goods')
+                    import ('./view/main/tab1'),
+
             },
             {
-                path: '/question',
-                name: 'cart',
+                name: 't2',
+                path: 't2',
                 component: () =>
-                    import ('@/view/cart')
+                    import ('./view/main/tab2'),
+
+            },
+            {
+                name: 't3',
+                path: 't3',
+                component: () =>
+                    import ('./view/main/tab3'),
+
+            },
+            {
+                name: 't4',
+                path: 't4',
+                component: () =>
+                    import ('./view/main/tab4'),
+
             },
         ]
-
     },
+
     {
         name: 'cart',
         path: '/cart',
@@ -60,7 +71,7 @@ const routes = [{
 
 const router = createRouter({
     routes,
-    history: createWebHashHistory(),
+    history: createWebHashHistory(), //createWebHistory(), createWebHashHistory
 });
 
 router.beforeEach((to, from, next) => {

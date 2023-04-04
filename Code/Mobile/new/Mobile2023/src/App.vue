@@ -1,21 +1,20 @@
 <template>
-  <div id="app">
+  <div id="app"> 
     <router-view />
   </div>
 </template>
 
+<script setup>
+import './assets/css/index.css'
+</script>
+
 <style>
 body {
-  font-size: 16px;
-  /* background-color: #fd0c0c; */
-  background: url(assets/back.png);
-   background-size: cover;
+  font-size: 16px; 
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
-  margin:0;
-  padding:0;
-  border:0
+  margin: 0;
+  padding: 0;
+  border: 0
 }
-
-
-
 </style>
