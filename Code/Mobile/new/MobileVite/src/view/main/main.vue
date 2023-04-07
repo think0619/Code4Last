@@ -20,7 +20,7 @@ import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
 const active = ref(route.path);  
-</script >
+</script>
 
 <script  lang="jsx">
 
