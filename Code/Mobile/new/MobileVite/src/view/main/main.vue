@@ -148,17 +148,18 @@ export default {
  }
 
  .van-nav-bar {
-   background: url(../../assets/img/navbarbg.png);
+   /* background: url(../../assets/img/navbarbg.png); */
+   background-color: 	rgba(13,37,111,0.800); 
    background-repeat: no-repeat;
    background-size: 100vw 100vh;
-   --van-nav-bar-height: 5.5vh
+   --van-nav-bar-height: 6vh
  }
 
- .content {
+ /* .content {
    background: url(../../assets/img/back.png);
    background-size: cover;
    height: 100%;
- }
+ } */
 
  .contentTitle {
    width: 100vw;
@@ -179,10 +180,19 @@ export default {
  }
 
  .cmdCustomBtn1 {
-   margin: 10px auto;
+   margin: 0 auto;
    width: 90vw;
    height: 12vh;
-   --van-button-border-width: 0
+   --van-button-border-width: 0;
+   display: flex;
+   
+ }
+ .cmdCustomBtn1 .btn_name{
+ line-height: 12vh;
+  font-size: 2rem;
+  font-weight: 600; 
+  color: #fff;  
+  margin-left: 30px; 
  }
 
 
@@ -193,11 +203,12 @@ export default {
    width: 3rem;
    height: 3rem;
  }
+ 
 
  .crtIcon {
-   display: block;
-   float: right;
-   margin: 2vh 2vw 0 0;
+  margin-left: auto;
+   margin-top: 2vh;
+   margin-right:  2vw ;
    width: 2rem;
    height: 2rem;
  }

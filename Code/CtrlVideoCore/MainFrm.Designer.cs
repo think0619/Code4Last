@@ -36,7 +36,6 @@
             // videoView1
             // 
             this.videoView1.BackColor = System.Drawing.Color.Black;
-            this.videoView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.videoView1.Location = new System.Drawing.Point(0, -39);
             this.videoView1.MediaPlayer = null;
             this.videoView1.Name = "videoView1";
@@ -48,10 +47,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(3840, 1041);
             this.Controls.Add(this.videoView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.videoView1)).EndInit();
             this.ResumeLayout(false);

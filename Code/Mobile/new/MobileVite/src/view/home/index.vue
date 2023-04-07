@@ -66,9 +66,9 @@ const themeVars = reactive({
  
  .btn2 {
      position: absolute;
-     left: 38vw; 
+     left: 39vw; 
      top: 57vh;
-     width: 46vw;
+     width: 47vw;
  } 
  /* .btn3 {
      position: absolute;
@@ -89,6 +89,6 @@ const themeVars = reactive({
      --van-button-radius: 30px;
      --van-button-border-width: 0;
      --van-button-default-height: 5.3vh;
-     --van-button-normal-font-size: 18px;
+     --van-button-normal-font-size: 1.1rem;
  }
 </style>

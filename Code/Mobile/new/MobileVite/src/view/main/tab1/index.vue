@@ -3,19 +3,24 @@
         <span>{{ contentTitle }}</span>
     </div>
     <div class="btnArea">
-        <!-- <van-button  type="primary"   size="normal" block class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn1')"> </van-button>  -->
-        <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn1')">
-            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn1" />
-        </div>
-        <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn2')">
-            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn2" />
-        </div>
-        <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn3')">
-            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn3" />
-        </div>
-        <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn4')">
-            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn4" />
-        </div>
+        <van-space direction="vertical" fill size="2vh">
+            <div class="cmdCustomBtn1 btn1 " @click="onClickCmdBtn('page4_btn1')">
+                <span class="btn_name">智慧园区</span>
+                <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn1" />
+            </div>
+            <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn2')">
+                <span class="btn_name">智慧园区</span>
+                <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn2" />
+            </div>
+            <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn3')">
+                <span class="btn_name">智慧园区</span>
+                <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn3" />
+            </div>
+            <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn4')">
+                <span class="btn_name">智慧园区</span>
+                <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn4" />
+            </div>
+        </van-space>
         <van-image round class="cmdResetBtn" fit="cover" @click="onclickReset('page4_reset')" :src="resetBtnImg" />
     </div>
 </template> 
@@ -24,8 +29,16 @@
 .btn1 {
     background: url(../../../assets/img/p4/e1.png);
     background-repeat: no-repeat;
-    background-size: cover; 
-}
+    background-size: cover;
+}  
+</style>
+
+<style> 
+.content {
+   background: url(../../../assets/img/back/b1.jpg) !important;
+   background-size: cover;
+   height: 100%;
+ } 
 </style>
 
 <script setup lang="jsx">
@@ -41,14 +54,14 @@ export default {
     data() {
         return {
             title: '智能喷涂',
-            contentTitle: '智能喷涂', 
+            contentTitle: '智能喷涂',
             active: 0,
             show: false,
             showlist: {
                 page4_btn1: false,
                 page4_btn2: false,
                 page4_btn3: false,
-                page4_btn4: false, 
+                page4_btn4: false,
             }
         };
     },

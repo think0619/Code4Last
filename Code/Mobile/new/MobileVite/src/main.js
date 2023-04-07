@@ -8,6 +8,8 @@ import { NavBar } from 'vant';
 import { Tabbar, TabbarItem } from 'vant';
 import { Toast } from 'vant';
 import { Image as VanImage } from 'vant';
+import { Space } from 'vant';
+
 
 const app = createApp(App);
 app.use(router);
@@ -17,5 +19,6 @@ app.use(Tabbar);
 app.use(TabbarItem);
 app.use(Toast);
 app.use(VanImage);
+app.use(Space);
 
 app.mount('#app');

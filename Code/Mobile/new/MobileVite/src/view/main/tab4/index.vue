@@ -69,9 +69,5 @@ export default {
 </script>
 
 <style scoped>
-.btn1 {
-    background: url(../../../assets/img/p4/e1.png);
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
+
 </style>

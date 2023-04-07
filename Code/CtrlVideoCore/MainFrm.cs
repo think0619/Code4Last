@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Configuration;
 using System.Windows.Forms;
+using LibVLCSharp.WinForms;
 
 namespace CtrlVideoCore
 {
@@ -32,13 +33,12 @@ namespace CtrlVideoCore
         public MainFrm()
         {
             libvlc = new LibVLC();
-            this.WindowState = FormWindowState.Maximized;
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.FormBorderStyle = FormBorderStyle.None; 
-            InitializeComponent();  
+        
+            InitializeComponent();
 
+            this.Load += new EventHandler(LoadFormLocationSize);
             this.Load += (obj, e) =>
-            {
+            { 
                 Core.Initialize();
                 GetVideoFiles();
 
@@ -198,7 +198,10 @@ namespace CtrlVideoCore
         public void InitVideoPlayer()
         {
             videoView1.MediaPlayer = new MediaPlayer(libvlc);
-            videoView1.Dock = DockStyle.Fill; 
+            //videoView1.MediaPlayer.AspectRatio="32:9";
+            videoView1.MediaPlayer.AspectRatio=String.Format($"{this.Width}:{this.Height}");
+            videoView1.Dock = DockStyle.Fill;
+           
             videoView1.MediaPlayer.EndReached += (s, e1) =>
             {
                 //单个循环时 超过设定时常 改为列表循环
@@ -319,5 +322,15 @@ namespace CtrlVideoCore
         {
             this.videoPlayMode = _playmode;
         }
+
+
+
+        private void LoadFormLocationSize(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = FormBorderStyle.None; 
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+        }
+
     }
 }
