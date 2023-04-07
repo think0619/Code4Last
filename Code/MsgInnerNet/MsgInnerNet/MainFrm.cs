@@ -33,7 +33,7 @@ namespace MsgInnerNet
         public static string TestConnectionString = "TestConnection";
 
         public MainFrm()
-        {
+        { 
             InitializeComponent();
 
             ServerMQUrl = ConfigurationManager.AppSettings["ServerMQUrl"].ToString();
@@ -50,9 +50,40 @@ namespace MsgInnerNet
             timer.Enabled = true;
             timer.Start();
 
-            this.Load += (a,b) => {
+            this.Load += (a,b) => { 
                 clearMsglogBox();
+                Task.Factory.StartNew(() =>
+                {
+                    System.Threading.Thread.Sleep(15 * 1000);
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        this.Hide();
+                    });
+                });
             }; 
+           
+            #region add notifyIcon
+            notifyIcon1.Icon = new System.Drawing.Icon(@"Res\data-transfer-64.ico");
+            notifyIcon1.Visible = true;
+            notifyIcon1.Text = "Data Transfer";
+            notifyIcon1.Visible = true;
+            this.notifyIcon1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.notifyIcon1.DoubleClick += (obj, ev) =>
+            {
+                this.ShowInTaskbar = true;
+                this.Show();
+            };
+            this.notifyIcon1.ContextMenuStrip.Items.Add("Dashboard", null, (obj, e) =>
+            {
+                this.ShowInTaskbar = true;
+                this.Show();
+            });
+            this.notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, (obj, e) =>
+            { 
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                System.Windows.Forms.Application.Exit();
+            });
+            #endregion 
         }
 
         private void clearbtn_Click(object sender, EventArgs e)

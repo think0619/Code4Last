@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             this.msglogBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.serveripTxt = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // msglogBox
@@ -42,7 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.msglogBox.Location = new System.Drawing.Point(9, 92);
-            this.msglogBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.msglogBox.Margin = new System.Windows.Forms.Padding(2);
             this.msglogBox.Multiline = true;
             this.msglogBox.Name = "msglogBox";
             this.msglogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -74,7 +77,7 @@
             this.serveripTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.serveripTxt.Enabled = false;
             this.serveripTxt.Location = new System.Drawing.Point(88, 10);
-            this.serveripTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.serveripTxt.Margin = new System.Windows.Forms.Padding(2);
             this.serveripTxt.Name = "serveripTxt";
             this.serveripTxt.Size = new System.Drawing.Size(317, 21);
             this.serveripTxt.TabIndex = 4;
@@ -83,7 +86,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(430, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 25);
             this.button1.TabIndex = 5;
@@ -95,7 +98,7 @@
             // 
             this.clearbtn.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.clearbtn.Location = new System.Drawing.Point(88, 46);
-            this.clearbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clearbtn.Margin = new System.Windows.Forms.Padding(2);
             this.clearbtn.Name = "clearbtn";
             this.clearbtn.Size = new System.Drawing.Size(94, 28);
             this.clearbtn.TabIndex = 6;
@@ -103,7 +106,12 @@
             this.clearbtn.UseVisualStyleBackColor = true;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
-            // Form1
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,8 +122,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.msglogBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "MainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "控制命令内外网转发";
             this.ResumeLayout(false);
@@ -130,6 +139,7 @@
         private System.Windows.Forms.TextBox serveripTxt;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button clearbtn;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 
