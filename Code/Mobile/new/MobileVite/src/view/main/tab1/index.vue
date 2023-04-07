@@ -3,26 +3,36 @@
         <span>{{ contentTitle }}</span>
     </div>
     <div class="btnArea">
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1"
-            @click="onClickCmdBtn('page1_btn1')">视频1</van-button>
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1"
-            @click="onClickCmdBtn('page1_btn2')">视频2</van-button>
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1"
-            @click="onClickCmdBtn('page1_btn3')">视频3</van-button>
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1"
-            @click="onClickCmdBtn('page1_btn4')">视频4</van-button> 
-
+        <!-- <van-button  type="primary"   size="normal" block class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn1')"> </van-button>  -->
+        <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn1')">
+            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn1" />
+        </div>
+        <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn2')">
+            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn2" />
+        </div>
+        <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn3')">
+            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn3" />
+        </div>
+        <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn4')">
+            <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn4" />
+        </div>
+        <van-image round class="cmdResetBtn" fit="cover" @click="onclickReset('page4_reset')" :src="resetBtnImg" />
     </div>
-    <van-image round class="cmdResetBtn" fit="cover" 
-         @click="onclickReset('page1_reset')"
-        :src="resetBtnImg" />
 </template> 
  
-<style scoped></style>
+<style scoped>
+.btn1 {
+    background: url(../../../assets/img/p4/e1.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+</style>
 
-<script setup lang="jsx"> 
-import resetBtnImg from '@/assets/img/setting.svg'
-</script>
+<script setup lang="jsx">
+import resetBtnImg from '@/assets/img/setting.svg';
+import correcticon from '@/assets/img/icons8-checkmark.svg';
+import p4r1 from '@/assets/img/p4/e1.png';
+</script> 
 
 <script lang="jsx">
 export default {
@@ -31,8 +41,15 @@ export default {
     data() {
         return {
             title: '智能喷涂',
-            contentTitle: '智能喷涂',
+            contentTitle: '智能喷涂', 
             active: 0,
+            show: false,
+            showlist: {
+                page4_btn1: false,
+                page4_btn2: false,
+                page4_btn3: false,
+                page4_btn4: false, 
+            }
         };
     },
     computed: {
@@ -45,10 +62,17 @@ export default {
     methods: {
         onClickCmdBtn(btnkey) {
             this.$emit('onDoCMDSend', btnkey);
+            for (let key in this.showlist) {
+                if (key == btnkey) {
+                    this.showlist[key] = true;
+                }
+            }
         },
         onclickReset(btnkey) {
             this.$emit('onDoCMDSend', btnkey);
-            
+            for (let key in this.showlist) {
+                this.showlist[key] = false;
+            }
         }
     }
 }; 

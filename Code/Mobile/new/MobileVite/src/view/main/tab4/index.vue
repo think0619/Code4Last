@@ -4,10 +4,10 @@
     </div>
     <div class="btnArea">
         <!-- <van-button  type="primary"   size="normal" block class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn1')"> </van-button>  -->
-        <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn1')">
+        <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn1')">
             <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn1" />
         </div>
-        <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn2')">
+        <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn2')">
             <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn2" />
         </div>
         <div class="cmdCustomBtn1 btn1   " @click="onClickCmdBtn('page4_btn3')">

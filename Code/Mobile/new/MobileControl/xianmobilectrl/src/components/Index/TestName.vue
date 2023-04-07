@@ -7,21 +7,21 @@
 <div class="mainbody"> 
   <h1>{{ a1 }}</h1>
 
-    <div style="margin-bottom:50px">
-      <van-config-provider :theme-vars="themeVars">
-    <van-button type="primary" @click="clickDemo()" >Primary</van-button>
+      <div style="margin-bottom:50px">
+        <van-config-provider :theme-vars="themeVars">
+      <van-button type="primary" @click="clickDemo()" >Primary</van-button>
 
-        <van-tabbar v-model="active" @change="onChange"
-        safe-area-inset-bottom="true"
-          active-color="#3385ff" inactive-color="#000"
-         > 
-          <van-tabbar-item icon="home-o" badge="5">绿色能源</van-tabbar-item>
-          <van-tabbar-item icon="search" dot>智慧城市</van-tabbar-item>
-          <van-tabbar-item icon="friends-o" badge="5">智慧工厂</van-tabbar-item>
-          <van-tabbar-item icon="setting-o" dot>智慧煤矿</van-tabbar-item>
-        </van-tabbar>
-      </van-config-provider>
-      </div>
+          <van-tabbar v-model="active" @change="onChange"
+          safe-area-inset-bottom="true"
+            active-color="#3385ff" inactive-color="#000"
+           > 
+            <van-tabbar-item icon="home-o" badge="5">绿色能源</van-tabbar-item>
+            <van-tabbar-item icon="search" dot>智慧城市</van-tabbar-item>
+            <van-tabbar-item icon="friends-o" badge="5">智慧工厂</van-tabbar-item>
+            <van-tabbar-item icon="setting-o" dot>智慧煤矿</van-tabbar-item>
+          </van-tabbar>
+        </van-config-provider>
+        </div>
 </div> 
 
 </template>

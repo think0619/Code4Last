@@ -1,7 +1,9 @@
 <template>
     <div id="content">
         <van-button type="primary" size="normal" class="btn1 cusbtn" block @click="goto('/main/t1')">智能井口</van-button>
-        <van-button type="primary" size="normal" class="btn2 cusbtn" block @click="goto('/main/t2')">智能井口2</van-button>
+        <van-button type="primary" size="normal" class="btn2 cusbtn" block @click="goto('/main/t2')">绿色低碳智慧园区</van-button>
+        <!-- <van-button type="primary" size="normal" class="btn3 cusbtn" block @click="goto('/main/t3')">环保工艺</van-button>
+        <van-button type="primary" size="normal" class="btn4 cusbtn" block @click="goto('/main/t4')">巷道新材料</van-button> -->
     </div>
 </template>
 
@@ -50,7 +52,7 @@ const themeVars = reactive({
      margin: 0;
      padding: 0;
      overflow: hidden;
-     background: url(../../assets/img/index1.jpg);
+     background: url(../../assets/img/indexbg-01.jpg);
      background-repeat: no-repeat;
      background-size: 100vw 100vh;
  }
@@ -58,24 +60,35 @@ const themeVars = reactive({
  .btn1 {
      position: absolute;
      left: 2.5vw;
-     /* top: 64.5vh; */
-     top: 70.5vh;
+     top: 64.5vh; 
      width: 35vw;
  } 
  
  .btn2 {
      position: absolute;
-     left: 2.5vw;
-     /* top: 64.5vh; */
-     top: 50.5vh;
+     left: 38vw; 
+     top: 57vh;
+     width: 46vw;
+ } 
+ /* .btn3 {
+     position: absolute;
+     left: 54vw; 
+     top: 65vh;
      width: 35vw;
  } 
+ .btn4 {
+     position: absolute;
+     left: 64vw; 
+     top: 47vh;
+     width: 35vw;
+ } 
+ */ 
 
  .cusbtn {
      --van-button-primary-background: linear-gradient(#625dff, #4ba2ff);
      --van-button-radius: 30px;
      --van-button-border-width: 0;
-     --van-button-default-height: 5.2vh;
+     --van-button-default-height: 5.3vh;
      --van-button-normal-font-size: 18px;
  }
 </style>
