@@ -149,17 +149,15 @@ export default {
 
  .van-nav-bar {
    /* background: url(../../assets/img/navbarbg.png); */
-   background-color: 	rgba(13,37,111,0.800); 
+   background-color: rgba(13, 37, 111, 0.800);
    background-repeat: no-repeat;
    background-size: 100vw 100vh;
    --van-nav-bar-height: 6vh
  }
 
- /* .content {
-   background: url(../../assets/img/back.png);
-   background-size: cover;
+ .content {
    height: 100%;
- } */
+ }
 
  .contentTitle {
    width: 100vw;
@@ -176,7 +174,7 @@ export default {
  .btnArea {
    max-height: 70vh;
    overflow: scroll;
-   margin: 10px auto;
+   margin: 12vh auto;
  }
 
  .cmdCustomBtn1 {
@@ -185,30 +183,31 @@ export default {
    height: 12vh;
    --van-button-border-width: 0;
    display: flex;
-   
+
  }
- .cmdCustomBtn1 .btn_name{
- line-height: 12vh;
-  font-size: 2rem;
-  font-weight: 600; 
-  color: #fff;  
-  margin-left: 30px; 
+
+ .cmdCustomBtn1 .btn_name {
+   line-height: 12vh;
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: #fff;
+   margin-left: 30px;
  }
 
 
  .cmdResetBtn {
    position: absolute;
-   top: 6vh;
+   top: 6.5vh;
    right: 5vw;
    width: 3rem;
    height: 3rem;
  }
- 
+
 
  .crtIcon {
-  margin-left: auto;
+   margin-left: auto;
    margin-top: 2vh;
-   margin-right:  2vw ;
+   margin-right: 2vw;
    width: 2rem;
    height: 2rem;
  }
@@ -216,4 +215,92 @@ export default {
  .custabbar {
    --van-tabbar-height: 7.5vh
  }
-</style>
+
+ .cmdbtn-size {
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn1 {
+   background: url(@/assets/img/btn/01-1.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn1-1 {
+   background: url(@/assets/img/btn/01-1.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn1-2 {
+   background: url(@/assets/img/btn/01-2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn1-3 {
+   background: url(@/assets/img/btn/01-3.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn1-4 {
+   background: url(@/assets/img/btn/01-4.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn2-1 {
+   background: url(@/assets/img/btn/02-1.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn2-2 {
+   background: url(@/assets/img/btn/02-2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn2-3 {
+   background: url(@/assets/img/btn/02-3.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .cmdbtn2-4 {
+   background: url(@/assets/img/btn/02-4.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+.cmdbtn3-1 {
+  background: url(@/assets/img/btn/03-1.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.cmdbtn3-2 {
+  background: url(@/assets/img/btn/03-2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.cmdbtn3-3 {
+  background: url(@/assets/img/btn/03-3.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.cmdbtn3-4 {
+  background: url(@/assets/img/btn/03-4.jpg);
+  background-repeat: no-repeat;
+   background-size: cover;
+}
+ 
+ 
+ 
+ 
+ 
+ </style>

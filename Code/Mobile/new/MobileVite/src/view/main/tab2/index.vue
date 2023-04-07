@@ -1,7 +1,7 @@
 <template>
-    <div class="contentTitle"> 
+    <!-- <div class="contentTitle"> 
         <span>{{ contentTitle }}</span>
-    </div>
+    </div> -->
     <div class="btnArea" >
         <!-- <van-button type="primary" size="normal" block class="cmdCustomBtn1  " @click="onClickCmdBtn('page2_btn1')">视频1</van-button>
         <van-button type="primary" size="normal" block class="cmdCustomBtn1  " @click="onClickCmdBtn('page2_btn2')">视频2</van-button>
@@ -22,7 +22,7 @@ export default {
     },
     data() { 
          return {
-            title:'智能井口',
+            title:'绿色矿山展区',
             contentTitle:'智能井口',
             active: 0,
         };
@@ -41,10 +41,12 @@ export default {
     }
 }; 
 </script>
+
+
 <style> 
 .content {
-   background: url(../../../assets/img/back/b2.jpg) !important;
-   background-size: cover;
-   height: 100%;
+   background: url(../../../assets/img/back/b2.jpg);
+   background-repeat: no-repeat;
+   background-size: 100vw 100vh;
  } 
 </style>

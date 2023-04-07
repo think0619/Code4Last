@@ -1,23 +1,23 @@
 <template>
-    <div class="contentTitle">
+    <!-- <div class="contentTitle">
         <span>{{ contentTitle }}</span>
-    </div>
+    </div> -->
     <div class="btnArea">
         <van-space direction="vertical" fill size="2vh">
-            <div class="cmdCustomBtn1 btn1 " @click="onClickCmdBtn('page4_btn1')">
-                <span class="btn_name">智慧园区</span>
+            <div class="cmdCustomBtn1 cmdbtn1-1" @click="onClickCmdBtn('page4_btn1')">
+                <span class="btn_name">智慧园区1</span>
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn1" />
             </div>
-            <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn2')">
-                <span class="btn_name">智慧园区</span>
+            <div class="cmdCustomBtn1 cmdbtn1-2" @click="onClickCmdBtn('page4_btn2')">
+                <span class="btn_name">智慧园区2</span>
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn2" />
             </div>
-            <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn3')">
-                <span class="btn_name">智慧园区</span>
+            <div class="cmdCustomBtn1 cmdbtn1-3" @click="onClickCmdBtn('page4_btn3')">
+                <span class="btn_name">智慧园区3</span>
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn3" />
             </div>
-            <div class="cmdCustomBtn1 btn1" @click="onClickCmdBtn('page4_btn4')">
-                <span class="btn_name">智慧园区</span>
+            <div class="cmdCustomBtn1 cmdbtn1-4" @click="onClickCmdBtn('page4_btn4')">
+                <span class="btn_name">智慧园区4</span>
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page4_btn4" />
             </div>
         </van-space>
@@ -26,18 +26,14 @@
 </template> 
  
 <style scoped>
-.btn1 {
-    background: url(../../../assets/img/p4/e1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}  
+
 </style>
 
-<style> 
+<style > 
 .content {
-   background: url(../../../assets/img/back/b1.jpg) !important;
-   background-size: cover;
-   height: 100%;
+   background: url(../../../assets/img/back/b1.jpg);
+   background-repeat: no-repeat;
+   background-size: 100vw 100vh;
  } 
 </style>
 
@@ -53,7 +49,7 @@ export default {
     },
     data() {
         return {
-            title: '智能喷涂',
+            title: '绿色矿山展区',
             contentTitle: '智能喷涂',
             active: 0,
             show: false,
