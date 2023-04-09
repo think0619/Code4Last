@@ -8,6 +8,8 @@ using System.Text;
 using System.Configuration;
 using System.Windows.Forms;
 using LibVLCSharp.WinForms;
+using CtrlVideoPlayerCore.Helper;
+using static CtrlVideoPlayerCore.Helper.ScreenHelper;
 
 namespace CtrlVideoCore
 {
@@ -27,13 +29,35 @@ namespace CtrlVideoCore
         string GUID = "ABCDE";
         int UdpListenPort = 47147;
 
-        
+        DEVMODE dm;
 
 
         public MainFrm()
         {
+           
+
             libvlc = new LibVLC();
-        
+            //string ScreenNo = ConfigurationManager.AppSettings["ScreenNoX"].ToString();
+            //int index = 1;
+            //if (!String.IsNullOrWhiteSpace(ScreenNo))
+            //{
+            //    Int32.TryParse(ScreenNo, out index);
+            //}
+            //Screen[] sc = Screen.AllScreens;
+            //var x1 = Screen.AllScreens;
+            //if ((sc.Length - index) >= 1)
+            //{
+            //    dm= ScreenHelper.GetScreenSize(index); 
+            //}
+            //else 
+            //{
+            //    dm= ScreenHelper.GetScreenSize(0);
+            //}
+
+            //this.StartPosition = FormStartPosition.Manual;
+            //this.Location =new Point(dm.dmPositionX, dm.dmPositionY);
+            //this.Size=new Size(dm.dmPelsWidth,dm.dmPelsHeight);
+
             InitializeComponent();
 
             this.Load += new EventHandler(LoadFormLocationSize);
@@ -199,7 +223,28 @@ namespace CtrlVideoCore
         {
             videoView1.MediaPlayer = new MediaPlayer(libvlc);
             //videoView1.MediaPlayer.AspectRatio="32:9";
+
+
+            //string ScreenNo = ConfigurationManager.AppSettings["ScreenNoX"].ToString();
+            //int index = 1;
+            //if (!String.IsNullOrWhiteSpace(ScreenNo))
+            //{
+            //    Int32.TryParse(ScreenNo, out index);
+            //}
+            //Screen[] sc = Screen.AllScreens;
+            //if ((sc.Length - index) >= 1)
+            //{
+            //    this.StartPosition = FormStartPosition.Manual;
+            //    this.Location = Screen.AllScreens[index].WorkingArea.Location;
+            //    videoView1.MediaPlayer.AspectRatio=String.Format($"{Screen.AllScreens[index].Bounds.Width}:{Screen.AllScreens[index].Bounds.Height}");
+            //}
+            //else
+            //{
+            //    videoView1.MediaPlayer.AspectRatio=String.Format($"{this.Width}:{this.Height}"); 
+            //}
             videoView1.MediaPlayer.AspectRatio=String.Format($"{this.Width}:{this.Height}");
+            //videoView1.MediaPlayer.AspectRatio=String.Format($"{dm.dmPelsWidth}:{dm.dmPelsHeight}");
+
             videoView1.Dock = DockStyle.Fill;
            
             videoView1.MediaPlayer.EndReached += (s, e1) =>
@@ -326,10 +371,13 @@ namespace CtrlVideoCore
 
 
         private void LoadFormLocationSize(object sender, EventArgs e)
-        {
+        {  
             this.WindowState = FormWindowState.Normal;
             this.FormBorderStyle = FormBorderStyle.None; 
-            this.Bounds = Screen.PrimaryScreen.Bounds;
+            //this.Size=new Size(dm.dmPelsWidth, dm.dmPelsHeight);
+            //this.Location =new Point(dm.dmPositionX, dm.dmPositionY);
+
+             this.Bounds = Screen.PrimaryScreen.Bounds;
         }
 
     }

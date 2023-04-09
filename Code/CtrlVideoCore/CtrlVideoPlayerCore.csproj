@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <None Remove="Videos\01\01 00_00_00-00_00_05.MP4" />
-    <None Remove="Videos\01\01.MP4" />
     <None Remove="Videos\01\test.mp4" />
     <None Remove="Videos\01\test1.mp4" />
     <None Remove="Videos\02\02.MP4" />
@@ -68,12 +67,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Videos\01\test.mp4">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>

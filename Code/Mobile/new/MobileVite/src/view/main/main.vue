@@ -184,7 +184,7 @@ export default {
  }
 
  .btnArea {
-   max-height: 70vh;
+   max-height: 58vh;
    overflow: scroll;
    margin: 2.5vh auto;
  }
@@ -207,12 +207,24 @@ export default {
  }
 
  .cmdResetBtn {
-   position: absolute;
+  position: absolute;
    top: 7vh;
    right: 5vw;
    width: 3rem;
    height: 3rem;
  } 
+ 
+.arrowdiv{
+  position: absolute;
+   bottom: 18vh; 
+   width: 100vw;
+   height: 6vh;
+   margin: 0 auto; 
+   
+}
+.arrowCol{
+ text-align: center;
+}
  
  .crtIcon {
    margin-left: auto;

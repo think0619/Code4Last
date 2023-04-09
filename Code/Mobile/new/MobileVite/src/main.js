@@ -9,7 +9,7 @@ import { Tabbar, TabbarItem } from 'vant';
 import { Toast } from 'vant';
 import { Image as VanImage } from 'vant';
 import { Space } from 'vant';
-
+import { Col, Row } from 'vant';
 
 const app = createApp(App);
 app.use(router);
@@ -20,5 +20,7 @@ app.use(TabbarItem);
 app.use(Toast);
 app.use(VanImage);
 app.use(Space);
+app.use(Col);
+app.use(Row);
 
 app.mount('#app');
