@@ -1,13 +1,13 @@
 <template>
   <div class="content">
     <van-nav-bar class="vannav" :border=false :title="str1" left-text="" left-arrow @click-left="onClickLeft" />
-    <router-view ref="child" @onChangeTitle="changeTitle" @onDoCMDSend="doCMDSend" />
+    <router-view ref="child" @onChangeTitle="changeTitle" @onDoCMDSend="doCMDSend" class="" />
   </div>
   <div>
-    <van-tabbar v-model="active" @change="onChange" :border="false" safe-area-inset-bottom="true" active-color="#333"
-      inactive-color="#FFF" class="custabbar">
-      <van-tabbar-item icon="home-o" name="/main/t1" to="/main/t1" replace="true" badge="5">智能井口</van-tabbar-item>
-      <van-tabbar-item icon="home-o" name="/main/t2" to="/main/t2" replace="true" badge="5">绿色展区主屏幕</van-tabbar-item>
+    <!--@change="onChange" -->
+    <van-tabbar v-model="active" :border="false" safe-area-inset-bottom="true" inactive-color="#FFF" class="custabbar">
+      <van-tabbar-item icon="home-o"  name="/main/t1" to="/main/t1" replace="true" :dot="tabshow.t1">智能井口</van-tabbar-item>
+      <van-tabbar-item icon="hotel-o" name="/main/t2" to="/main/t2" replace="true" :dot="tabshow.t2">绿色展区主屏幕</van-tabbar-item>
       <!-- <van-tabbar-item icon="home-o" name="/main/t3" to="/main/t3" replace="true" badge="5">环保工艺</van-tabbar-item> -->
       <!-- <van-tabbar-item icon="home-o" name="/main/t4" to="/main/t4" replace="true" badge="5">巷道新材料</van-tabbar-item> -->
     </van-tabbar>
@@ -22,8 +22,7 @@ const route = useRoute();
 const active = ref(route.path);  
 </script>
 
-<script  lang="jsx">
-
+<script lang="jsx">
 import { sendCMDMsg } from "@/api/index";
 import { showToast } from 'vant';
 // cmd$PC${GUID}_video_pv01
@@ -42,27 +41,33 @@ export default {
     return {
       str1: '',
       active: 0,
+      tabshow: {
+        t1: false,
+        t2: false,
+        t3: false,
+        t4: false,
+      },
       cmds:
         [
-          { key: 'page1_btn1', cmd: ["cmd$Model$m1_open01", "cmd$PC$V4DES_Video_PV01",] },
-          { key: 'page1_btn2', cmd: ["cmd$Model$m1_open02", "cmd$PC$V4DES_Video_PV02",] },
-          { key: 'page1_btn3', cmd: ["cmd$Model$m1_open03", "cmd$PC$V4DES_Video_PV03",] },
-          { key: 'page1_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_PV04",] },
-          { key: 'page1_reset', cmd: ["cmd$PC$V4DES_video_list"] },
+          { key: 'page1_btn1', cmd: ["cmd$Model$m1_open01", "cmd$PC$YUIDX43_Video_PV01",] },
+          { key: 'page1_btn2', cmd: ["cmd$Model$m1_open02", "cmd$PC$YUIDX43_Video_PV02",] },
+          { key: 'page1_btn3', cmd: ["cmd$Model$m1_open03", "cmd$PC$YUIDX43_Video_PV03",] },
+          { key: 'page1_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$YUIDX43_Video_PV04",] },
+          { key: 'page1_reset', cmd: ["cmd$PC$YUIDX43_video_list"] },
 
-          { key: 'page2_btn1', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_pause",] },
-          { key: 'page2_btn2', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_start",] },
-          { key: 'page2_btn3', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_single",] },
-          { key: 'page2_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_list ",] },
-          { key: 'page2_reset', cmd: ["cmd$PC$V4DES_video_list"] },
+          { key: 'page2_btn1', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_pause",] },
+          { key: 'page2_btn2', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_start",] },
+          { key: 'page2_btn3', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_single",] },
+          { key: 'page2_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_list",] },
+          { key: 'page2_btn5', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_PV01",] },
+          { key: 'page2_btn6', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_pv02",] },
+          { key: 'page2_reset', cmd: ["cmd$PC$QAZW23_video_list"] },
 
-          { key: 'page4_btn1', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_pause",] },
-          { key: 'page4_btn2', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_start",] },
-          { key: 'page4_btn3', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_single",] },
-          { key: 'page4_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$V4DES_Video_list ",] },
-          { key: 'page4_reset', cmd: ["cmd$PC$V4DES_video_list"] },
-
-
+          { key: 'page4_btn1', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_pause",] },
+          { key: 'page4_btn2', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_start",] },
+          { key: 'page4_btn3', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_single",] },
+          { key: 'page4_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_list ",] },
+          { key: 'page4_reset', cmd: ["cmd$PC$UJDH55_video_list"] },
         ]
     };
   },
@@ -135,6 +140,9 @@ export default {
         duration: 500,
       });
     },
+    onChange(item) {
+      alert(item);
+    }
   }
 }; 
 </script>
@@ -145,6 +153,7 @@ export default {
    --van-nav-bar-arrow-size: 20px;
    --van-tabbar-background: transparent;
    --van-tabbar-item-icon-size: 22px;
+   --van-tabbar-item-active-background: transparent;
  }
 
  .van-nav-bar {
@@ -157,24 +166,27 @@ export default {
 
  .content {
    height: 100%;
+   background: url(@/assets/img/back/itembg.png);
+   background-repeat: no-repeat;
+   background-size: 100vw 100vh;
  }
 
  .contentTitle {
    width: 100vw;
-   height: 4vh;
    margin: 0 auto;
    color: #fffefc;
-   margin: 15px auto 0 auto;
+   margin: 2vh auto 0 auto;
    display: flex;
    flex-direction: row;
    justify-content: center;
-   font-size: 1.3rem;
+   font-size: 2rem;
+   font-family: Youshe;
  }
 
  .btnArea {
    max-height: 70vh;
    overflow: scroll;
-   margin: 12vh auto;
+   margin: 2.5vh auto;
  }
 
  .cmdCustomBtn1 {
@@ -194,16 +206,14 @@ export default {
    margin-left: 30px;
  }
 
-
  .cmdResetBtn {
    position: absolute;
-   top: 6.5vh;
+   top: 7vh;
    right: 5vw;
    width: 3rem;
    height: 3rem;
- }
-
-
+ } 
+ 
  .crtIcon {
    margin-left: auto;
    margin-top: 2vh;
@@ -275,32 +285,27 @@ export default {
    background-size: cover;
  }
 
-.cmdbtn3-1 {
-  background: url(@/assets/img/btn/03-1.jpg);
+ .cmdbtn3-1 {
+   background: url(@/assets/img/btn/03-1.jpg);
    background-repeat: no-repeat;
    background-size: cover;
-}
+ }
 
-.cmdbtn3-2 {
-  background: url(@/assets/img/btn/03-2.jpg);
+ .cmdbtn3-2 {
+   background: url(@/assets/img/btn/03-2.jpg);
    background-repeat: no-repeat;
    background-size: cover;
-}
+ }
 
-.cmdbtn3-3 {
-  background: url(@/assets/img/btn/03-3.jpg);
+ .cmdbtn3-3 {
+   background: url(@/assets/img/btn/03-3.jpg);
    background-repeat: no-repeat;
    background-size: cover;
-}
+ }
 
-.cmdbtn3-4 {
-  background: url(@/assets/img/btn/03-4.jpg);
-  background-repeat: no-repeat;
+ .cmdbtn3-4 {
+   background: url(@/assets/img/btn/03-4.jpg);
+   background-repeat: no-repeat;
    background-size: cover;
-}
- 
- 
- 
- 
- 
- </style>
+ }
+</style>

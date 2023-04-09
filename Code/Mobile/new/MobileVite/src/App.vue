@@ -6,7 +6,7 @@
 
 <script setup>
 import './assets/css/index.css'
-// import './assets/css/font.css'
+import './assets/css/font.css'
 </script>
 <script>
 
