@@ -17,7 +17,7 @@ namespace CtrlVideoCore
     {
         LibVLC libvlc;
         //视频文件数组
-        internal string[] videoFilePath = new string[10]; 
+        internal string[] videoFilePath = new string[20]; 
         //当前视频播放索引
         int videoCurrentIndex = 0;
         int videoCurrentPlayCount = 0;

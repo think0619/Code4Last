@@ -4,8 +4,8 @@
     "Key": "Model",
     "Name": "M1",
     "Remark": "模型1",
-    "IPAddress": "10.10.8.177",
-    "Port": 47147
+    "IPAddress": "192.168.1.111",
+    "Port": 2722
   },
   {
     "Index": 1,
@@ -20,7 +20,7 @@
     "Key": "PC",
     "Name": "PCBroadcast",
     "Remark": "广播",
-    "IPAddress": "10.10.20.255",
+    "IPAddress": "127.0.0.1",
     "Port": 47147
   }
 

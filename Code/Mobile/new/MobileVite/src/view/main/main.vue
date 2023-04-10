@@ -6,8 +6,9 @@
   <div>
     <!--@change="onChange" -->
     <van-tabbar v-model="active" :border="false" safe-area-inset-bottom="true" inactive-color="#FFF" class="custabbar">
-      <van-tabbar-item icon="home-o"  name="/main/t1" to="/main/t1" replace="true" :dot="tabshow.t1">智能井口</van-tabbar-item>
-      <van-tabbar-item icon="hotel-o" name="/main/t2" to="/main/t2" replace="true" :dot="tabshow.t2">绿色展区主屏幕</van-tabbar-item>
+      <van-tabbar-item icon="home-o" name="/main/t1" to="/main/t1" replace="true" :dot="tabshow.t1">智能井口</van-tabbar-item>
+      <van-tabbar-item icon="hotel-o" name="/main/t2" to="/main/t2" replace="true"
+        :dot="tabshow.t2">绿色展区主屏幕</van-tabbar-item>
       <!-- <van-tabbar-item icon="home-o" name="/main/t3" to="/main/t3" replace="true" badge="5">环保工艺</van-tabbar-item> -->
       <!-- <van-tabbar-item icon="home-o" name="/main/t4" to="/main/t4" replace="true" badge="5">巷道新材料</van-tabbar-item> -->
     </van-tabbar>
@@ -33,7 +34,7 @@ import { showToast } from 'vant';
 // cmd$PC${GUID}_video_next 
 // cmd$PC${GUID}_video_previous
 // cmd$Model$m1_open01 cmd$Model${GUID}_open01  
-
+//"cmd$Model$m1_open01", "cmd$PC$YUIDX43_Video_PV01",
 export default {
   components: {
   },
@@ -49,24 +50,31 @@ export default {
       },
       cmds:
         [
-          { key: 'page1_btn1', cmd: ["cmd$Model$m1_open01", "cmd$PC$YUIDX43_Video_PV01",] },
-          { key: 'page1_btn2', cmd: ["cmd$Model$m1_open02", "cmd$PC$YUIDX43_Video_PV02",] },
-          { key: 'page1_btn3', cmd: ["cmd$Model$m1_open03", "cmd$PC$YUIDX43_Video_PV03",] },
-          { key: 'page1_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$YUIDX43_Video_PV04",] },
-          { key: 'page1_reset', cmd: ["cmd$PC$YUIDX43_video_list"] },
+          { key: 'page2_btn1', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV01',] }, //工业互联网平台·介绍
+          { key: 'page2_btn2', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV02',] }, //工业互联网平台·关键技术
+          { key: 'page2_btn3', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV03',] }, //工业互联网平台·选煤厂
+          { key: 'page2_btn4', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV04',] }, //工业互联网平台·低代码
+          { key: 'page2_btn5', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV05',] }, //工业互联网平台·曹家滩选煤厂
+          { key: 'page2_btn6', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV06', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·1+2+4+N
+          { key: 'page2_btn7', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV07', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·智慧安防
+          { key: 'page2_btn8', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV08', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·智慧后勤
+          { key: 'page2_btn9', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV09', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·碳计量一体盒
+          { key: 'page2_btn10', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV10', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·综合能效
+          { key: 'page2_btn11', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV11', "cmd$Model$m1_close01", "cmd$Model$m1_open02"] }, //智慧园区·微电网
+          { key: 'page2_btn12', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV12', "cmd$Model$m1_close02","cmd$Model$m1_open01",] }, //智慧园区·热循环
+          { key: 'page2_btn13', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV13', "cmd$Model$m1_close02", "cmd$Model$m1_close01",] }, //武汉院·管道技术
+          { key: 'page2_reset', cmd: ["cmd$PC$YUIDX43_video_list",  "cmd$Model$m1_open09", "cmd$Model$m1_close01", "cmd$Model$m1_close02",] },
 
-          { key: 'page2_btn1', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_pause",] },
-          { key: 'page2_btn2', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_start",] },
-          { key: 'page2_btn3', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_single",] },
-          { key: 'page2_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_list",] },
-          { key: 'page2_btn5', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_PV01",] },
-          { key: 'page2_btn6', cmd: ["cmd$Model$m1_open04", "cmd$PC$QAZW23_Video_pv02",] },
-          { key: 'page2_reset', cmd: ["cmd$PC$QAZW23_video_list"] },
+          { key: 'page1_btn1', cmd: ['cmd$PC$QAZW23_Video_single', "cmd$PC$QAZW23_Video_PV01",] },
+          { key: 'page1_btn2', cmd: ['cmd$PC$QAZW23_Video_single', "cmd$PC$QAZW23_Video_PV02",] },
+          { key: 'page1_btn3', cmd: ['cmd$PC$QAZW23_Video_single', "cmd$PC$QAZW23_Video_PV03",] },
+          { key: 'page1_btn4', cmd: ['cmd$PC$QAZW23_Video_single', "cmd$PC$QAZW23_Video_PV04",] }, 
+          { key: 'page1_reset', cmd: ["cmd$PC$QAZW23_Video_list"] },
 
-          { key: 'page4_btn1', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_pause",] },
-          { key: 'page4_btn2', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_start",] },
-          { key: 'page4_btn3', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_single",] },
-          { key: 'page4_btn4', cmd: ["cmd$Model$m1_open04", "cmd$PC$UJDH55_Video_list ",] },
+          { key: 'page3_btn1', cmd: ["cmd$PC$YUIDX43_Video_pause",  ] },
+          { key: 'page3_btn2', cmd: ["cmd$PC$YUIDX43_Video_start",  ] },
+          { key: 'page3_btn3', cmd: ["cmd$PC$QAZW23_Video_pause",] },
+          { key: 'page3_btn4', cmd: ["cmd$PC$QAZW23_Video_pause",] },
           { key: 'page4_reset', cmd: ["cmd$PC$UJDH55_video_list"] },
         ]
     };
@@ -180,7 +188,7 @@ export default {
    flex-direction: row;
    justify-content: center;
    font-size: 2rem;
-   font-family: Youshe;
+   /* font-family: Youshe; */
  }
 
  .btnArea {
@@ -189,7 +197,7 @@ export default {
    margin: 2.5vh auto;
  }
 
- .cmdCustomBtn1 {
+ .cmdCustomBtn1{
    margin: 0 auto;
    width: 90vw;
    height: 12vh;
@@ -206,26 +214,39 @@ export default {
    margin-left: 30px;
  }
 
+.cmdCustomBtn2{ 
+  width: 90vw;
+  line-height: 50px; 
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: #fff; 
+   margin: 10px auto;
+}
+
  .cmdResetBtn {
-  position: absolute;
+   position: absolute;
    top: 7vh;
    right: 5vw;
    width: 3rem;
    height: 3rem;
- } 
+ }
+
+
+
  
-.arrowdiv{
-  position: absolute;
-   bottom: 18vh; 
+ .arrowdiv {
+   position: absolute;
+   bottom: 18vh;
    width: 100vw;
    height: 6vh;
-   margin: 0 auto; 
-   
-}
-.arrowCol{
- text-align: center;
-}
- 
+   margin: 0 auto;
+
+ }
+
+ .arrowCol {
+   text-align: center;
+ }
+
  .crtIcon {
    margin-left: auto;
    margin-top: 2vh;
@@ -319,5 +340,4 @@ export default {
    background: url(@/assets/img/btn/03-4.jpg);
    background-repeat: no-repeat;
    background-size: cover;
- }
-</style>
+ }</style>

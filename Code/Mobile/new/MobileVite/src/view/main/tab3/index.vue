@@ -3,10 +3,10 @@
         <span>{{ contentTitle }}</span>
     </div>
     <div class="btnArea" >
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1" @click="onClickCmdBtn('page3_btn1')">视频1</van-button>
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1" @click="onClickCmdBtn('page3_btn2')">视频2</van-button>
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1" @click="onClickCmdBtn('page3_btn3')">视频3</van-button>
-        <van-button type="primary" size="normal" block class="cmdCustomBtn1" @click="onClickCmdBtn('page3_btn4')">视频4</van-button> 
+        <van-button type="primary" size="large" block class="cmdCustomBtn2" @click="onClickCmdBtn('page3_btn1')">园区暂停</van-button>
+        <van-button type="primary" size="large" block class="cmdCustomBtn2" @click="onClickCmdBtn('page3_btn2')">园区开始</van-button>
+        <van-button type="primary" size="large" block class="cmdCustomBtn2" @click="onClickCmdBtn('page3_btn3')">井口暂停</van-button>
+        <van-button type="primary" size="large" block class="cmdCustomBtn2" @click="onClickCmdBtn('page3_btn4')">井口开始</van-button> 
     </div>
     <van-image round class="cmdResetBtn" fit="cover" 
          @click="onclickReset('page3_reset')"
@@ -37,6 +37,9 @@ export default {
         onClickLeft2() {
             // this.$parent.onClickLeft();
              this.$emit('onClickLeftChild',title); 
+        },
+        onClickCmdBtn(btnkey) {
+            this.$emit('onDoCMDSend', btnkey); 
         },
     }
 }; 

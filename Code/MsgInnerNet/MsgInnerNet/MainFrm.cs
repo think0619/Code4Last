@@ -223,10 +223,12 @@ namespace MsgInnerNet
                                                                     udpclient.Connect();
                                                                     oneModelMsg.ForEach(msg =>
                                                                     {
-                                                                        udpclient.Send(msg.Content);
+                                                                        udpclient.Send(msg.Content); 
+                                                                        Task.Delay(50).Wait();
                                                                     });
                                                                     udpclient.DisconnectAndStop();
-                                                                });
+                                                                }
+                                                               );
                                                             }
                                                         }
                                                     }
@@ -235,7 +237,8 @@ namespace MsgInnerNet
                                         }
                                     }
                                 }
-                            }
+                            } 
+                            
                         }
                     }
                     catch (Exception ex)

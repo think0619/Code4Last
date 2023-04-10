@@ -89,6 +89,6 @@ const themeVars = reactive({
      --van-button-radius: 30px;
      --van-button-border-width: 0;
      --van-button-default-height: 5.3vh;
-     --van-button-normal-font-size: 1.1rem;
+     --van-button-normal-font-size: 1rem;
  }
 </style>
