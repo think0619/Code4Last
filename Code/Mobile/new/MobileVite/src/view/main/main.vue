@@ -60,8 +60,8 @@ export default {
           { key: 'page2_btn8', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV08', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·智慧后勤
           { key: 'page2_btn9', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV09', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·碳计量一体盒
           { key: 'page2_btn10', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV10', "cmd$Model$m1_close01", "cmd$Model$m1_close02"] }, //智慧园区·综合能效
-          { key: 'page2_btn11', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV11', "cmd$Model$m1_close01", "cmd$Model$m1_open02"] }, //智慧园区·微电网
-          { key: 'page2_btn12', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV12', "cmd$Model$m1_close02","cmd$Model$m1_open01",] }, //智慧园区·热循环
+          { key: 'page2_btn11', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV11', "cmd$Model$m1_close02", "cmd$Model$m1_open01"] }, //智慧园区·热循环
+          { key: 'page2_btn12', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV12', "cmd$Model$m1_close01","cmd$Model$m1_open02",] }, //智慧园区·微电网
           { key: 'page2_btn13', cmd: ['cmd$PC$YUIDX43_Video_single','cmd$PC$YUIDX43_Video_PV13', "cmd$Model$m1_close02", "cmd$Model$m1_close01",] }, //武汉院·管道技术
           { key: 'page2_reset', cmd: ["cmd$PC$YUIDX43_video_list",  "cmd$Model$m1_open09", "cmd$Model$m1_close01", "cmd$Model$m1_close02",] },
 

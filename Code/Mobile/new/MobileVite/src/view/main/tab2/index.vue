@@ -45,11 +45,11 @@
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page2_btn10" />
             </div>
             <div id="page2_btn11" class="cmdCustomBtn1 cmdbtn3-3" @click="onClickCmdBtn('page2_btn11')">
-                <span class="btn_name">智慧园区·微电网</span>
+                <span class="btn_name">智慧园区·热循环</span>
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page2_btn11" />
             </div>
             <div id="page2_btn12" class="cmdCustomBtn1 cmdbtn3-4" @click="onClickCmdBtn('page2_btn12')">
-                <span class="btn_name">智慧园区·热循环</span>
+                <span class="btn_name">智慧园区·微电网</span>
                 <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page2_btn12" />
             </div>
             <div id="page2_btn13" class="cmdCustomBtn1 cmdbtn1-1" @click="onClickCmdBtn('page2_btn13')">
