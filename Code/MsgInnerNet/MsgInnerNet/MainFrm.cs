@@ -33,7 +33,7 @@ namespace MsgInnerNet
         public static string TestConnectionString = "TestConnection";
 
         public MainFrm()
-        { 
+        {
             InitializeComponent();
 
             ServerMQUrl = ConfigurationManager.AppSettings["ServerMQUrl"].ToString();
@@ -50,7 +50,8 @@ namespace MsgInnerNet
             timer.Enabled = true;
             timer.Start();
 
-            this.Load += (a,b) => { 
+            this.Load += (a, b) =>
+            {
                 clearMsglogBox();
                 Task.Factory.StartNew(() =>
                 {
@@ -60,8 +61,8 @@ namespace MsgInnerNet
                         this.Hide();
                     });
                 });
-            }; 
-           
+            };
+
             #region add notifyIcon
             notifyIcon1.Icon = new System.Drawing.Icon(@"Res\data-transfer-64.ico");
             notifyIcon1.Visible = true;
@@ -79,7 +80,7 @@ namespace MsgInnerNet
                 this.Show();
             });
             this.notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, (obj, e) =>
-            { 
+            {
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
                 System.Windows.Forms.Application.Exit();
             });
@@ -96,16 +97,17 @@ namespace MsgInnerNet
             System.Timers.Timer timer = new System.Timers.Timer(1 * 60 * 1000);
             timer.Elapsed +=   (obj, e) =>
             {
-                if (this.msglogBox.Text.Length > 1000) 
+                if (this.msglogBox.Text.Length > 1000)
                 {
-                    msglogBox.BeginInvoke(new MethodInvoker(delegate {
+                    msglogBox.BeginInvoke(new MethodInvoker(delegate
+                    {
                         this.msglogBox.Text = String.Empty;
                     }));
                 };
             };
             timer.AutoReset = true;
             timer.Enabled = true;
-            timer.Start(); 
+            timer.Start();
         }
 
 
@@ -223,7 +225,7 @@ namespace MsgInnerNet
                                                                     udpclient.Connect();
                                                                     oneModelMsg.ForEach(msg =>
                                                                     {
-                                                                        udpclient.Send(msg.Content); 
+                                                                        udpclient.Send(msg.Content);
                                                                         Task.Delay(50).Wait();
                                                                     });
                                                                     udpclient.DisconnectAndStop();
@@ -237,8 +239,8 @@ namespace MsgInnerNet
                                         }
                                     }
                                 }
-                            } 
-                            
+                            }
+
                         }
                     }
                     catch (Exception ex)
@@ -255,11 +257,11 @@ namespace MsgInnerNet
                 // msglogBox.BeginInvoke(new MethodInvoker(delegate { msglogBox.AppendText(log); }));
             }
         }
-      
+
         private async void button1_Click(object sender, EventArgs e)
         {
             var result = await ConnectServiceAsync();
-        } 
+        }
 
         public async Task<string> ConnectServiceAsync()
         {
@@ -277,12 +279,13 @@ namespace MsgInnerNet
                 request.Method = "POST";
                 request.ContentType = "application/json";
                 request.Timeout = 5 * 1000;
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    streamWriter.Write(JsonHelper.JsonHelper.SerializeObject(testmsg));
-                }
                 try
                 {
+                    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                    {
+                        streamWriter.Write(JsonHelper.JsonHelper.SerializeObject(testmsg));
+                    }
+
                     using (var response = await request.GetResponseAsync())
                     {
                         using (var stream = response.GetResponseStream())
@@ -304,7 +307,7 @@ namespace MsgInnerNet
                 catch (Exception e)
                 {
                     return "";
-                } 
+                }
             }
         }
     }
