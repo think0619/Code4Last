@@ -15,6 +15,8 @@ const cart = () =>
     import ('@/view/cart/index.vue')
 const goods = () =>
     import ('@/view/goods/index.vue')
+const exihibition = () =>
+    import ('@/view/exihibition/index.vue')
 
 
 const routes = [{
@@ -76,6 +78,16 @@ const routes = [{
             title: '商品详情',
         },
     },
+    {
+        name: 'exihibition',
+        path: '/exihibition',
+        component: exihibition,
+        meta: {
+
+        },
+    },
+
+
 ];
 
 const router = createRouter({

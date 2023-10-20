@@ -155,7 +155,8 @@ export default {
 }; 
 </script>
 
-<style> :root:root {
+<style> 
+:root:root {
    --van-nav-bar-title-text-color: #fff;
    --van-nav-bar-icon-color: #fff;
    --van-nav-bar-arrow-size: 20px;

@@ -1,4 +1,6 @@
 import { createApp } from 'vue';
+import { createStore } from 'vuex'
+
 import App from './App.vue';
 import { router } from './router';
 import 'vant/lib/index.css'
@@ -10,6 +12,7 @@ import { Toast } from 'vant';
 import { Image as VanImage } from 'vant';
 import { Space } from 'vant';
 import { Col, Row } from 'vant';
+import { ActionBar, ActionBarIcon, ActionBarButton } from 'vant';
 
 const app = createApp(App);
 app.use(router);
@@ -22,5 +25,22 @@ app.use(VanImage);
 app.use(Space);
 app.use(Col);
 app.use(Row);
+app.use(ActionBar);
+app.use(ActionBarIcon);
+app.use(ActionBarButton);
 
+const store = createStore({
+    state() {
+        return {
+            mqttid: '',
+        }
+    },
+    mutations: {
+        setToken(state, _mqttid) {
+            state.mqttid = _mqttid;
+        },
+    }
+})
+
+app.use(store);
 app.mount('#app');
