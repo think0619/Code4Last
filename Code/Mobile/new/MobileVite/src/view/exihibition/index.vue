@@ -5,102 +5,20 @@
             <span>{{ contentTitle }}</span>
         </div>
         <div class="btnArea">
-            <van-space direction="vertical" fill size="2vh">
-                <div id="page1_btn1" class="cmdCustomBtn1 cmdbtn1-1" @click="sendmsg('page1_btn1', 'video_pv01')">
-                    <span class="btn_name">功能按键-1</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn1" />
-                </div>
-                <div id="page1_btn2" class="cmdCustomBtn1 cmdbtn1-2" @click="sendmsg('page1_btn2', 'video_pv02')">
-                    <span class="btn_name">功能按键-2</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn2" />
-                </div>
-                <div id="page1_btn3" class="cmdCustomBtn1 cmdbtn1-3" @click="sendmsg('page1_btn3', 'video_pv03')">
-                    <span class="btn_name">功能按键-3</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn3" />
-                </div>
-                <div id="page1_btn4" class="cmdCustomBtn1 cmdbtn1-4" @click="sendmsg('page1_btn4', 'video_pv04')">
-                    <span class="btn_name">功能按键-4</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn4" />
-                </div>
-                <div id="page1_btn1" class="cmdCustomBtn1 cmdbtn2-1" @click="sendmsg('page1_btn5', 'video_pv05')">
-                    <span class="btn_name">功能按键-5</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn5" />
-                </div>
-                <div id="page1_btn2" class="cmdCustomBtn1 cmdbtn2-2" @click="sendmsg('page1_btn6', 'video_pv06')">
-                    <span class="btn_name">功能按键-6</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn6" />
-                </div>
-                <div id="page1_btn3" class="cmdCustomBtn1 cmdbtn2-3" @click="sendmsg('page1_btn7', 'video_pv07')">
-                    <span class="btn_name">功能按键-7</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn7" />
-                </div>
-                <div id="page1_btn4" class="cmdCustomBtn1 cmdbtn2-4" @click="sendmsg('page1_btn8', 'video_pv08')">
-                    <span class="btn_name">功能按键-8</span>
-                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="showlist.page1_btn8" />
-                </div>
-
-            </van-space>
-            <!-- <van-image round class="cmdResetBtn" fit="cover" @click="onclickReset('page1_reset')" :src="customicons.reset" /> -->
-
-            <!-- <div class="arrowdiv">
-                <van-row justify="space-between" align="center" gutter="0">
-                    <van-col span="8" class="arrowCol"> <van-image round class=" " fit="cover" @click="changeBtn('pre')"
-                            :src="leftarrow" /></van-col>
-                    <van-col span="8" class="arrowCol"></van-col>
-                    <van-col span="8" class="arrowCol"> <van-image round class=" " fit="cover" @click="changeBtn('next')"
-                            :src="rightarrow" /></van-col>
-                </van-row>
-            </div> -->
-
-
+            <van-space direction="vertical" fill size="2vh"> 
+                <div v-for="(item, index) in btnlist"  :key="index"  :id="item.btnid"  class="cmdCustomBtn1" :class="item.classname" @click="sendmsg(item.btnid, item.msg)">
+                    <span class="btn_name">{{ item.fieldtext }}</span>
+                    <van-image round class="crtIcon" fit="cover" :src="correcticon" v-show="item.showarrow" />
+                </div>  
+            </van-space>  
         </div>
-        <van-action-bar>
+        <van-action-bar safe-area-inset-bottom>
             <van-action-bar-icon :icon="customicons.replay" text="重置" @click="clickcontrol('reset')" />
             <van-action-bar-icon :icon="customicons.play" text="开始" @click="clickcontrol('start')" />
             <van-action-bar-icon :icon="customicons.stop" text="暂停" @click="clickcontrol('pause')" />
-            <van-action-bar-icon :icon="customicons.rewind" text="上一个" @click="clickcontrol('previous')" />
-            <van-action-bar-button type="primary" text="下一个" @click="clickcontrol('next')" />
-        </van-action-bar>
-
-
-
-
-        <!-- <van-tabbar v-model="active" @change="clickcontrol"> 
-                <van-tabbar-item name="reset">
-                    <span>重置</span>
-                    <template #icon="props">
-                        <img :src="customicons.replay" />
-                    </template>
-                </van-tabbar-item>
-
-               <van-tabbar-item name="start" >
-                    <span>开始</span>
-                    <template #icon="props">
-                        <img :src="customicons.play" />
-                    </template>
-                </van-tabbar-item>
-
-                <van-tabbar-item name="pause">
-                    <span>暂停</span>
-                    <template #icon="props">
-                        <img :src="customicons.stop" />
-                    </template>
-                </van-tabbar-item>
-              
-                <van-tabbar-item name="previous">
-                    <span>上一个</span>
-                    <template #icon="props">
-                        <img :src="customicons.rewind" />
-                    </template>
-                </van-tabbar-item>
-
-                <van-tabbar-item name="next">
-                    <span>下一个</span>
-                    <template #icon="props">
-                        <img :src="customicons.forward"  />
-                    </template>
-                </van-tabbar-item> 
-            </van-tabbar> -->
+            <van-action-bar-button type="warning" color="linear-gradient(to bottom right,#329eff, #4969f3)" text="上一个" @click="clickcontrol('previous')" />
+            <van-action-bar-button type="primary" color="linear-gradient(to bottom right,#57abf6, #36b4fc)" text="下一个" @click="clickcontrol('next')" />
+        </van-action-bar> 
     </div>
 </template>   
 
@@ -150,8 +68,17 @@ export default {
                 play: mediaPlayIcon,
                 reset: resetBtnImg,
                 replay: mediaReplayIcon
-            }
-
+            },
+            btnlist:[
+                {btnid:"page1_btn1",classname:"cmdbtn1-1",msg:"video_pv01",fieldtext:"功能按键-1",showarrow:false},
+                {btnid:"page1_btn2",classname:"cmdbtn1-2",msg:"video_pv02",fieldtext:"功能按键-2",showarrow:false},
+                {btnid:"page1_btn3",classname:"cmdbtn1-3",msg:"video_pv03",fieldtext:"功能按键-3",showarrow:false},
+                {btnid:"page1_btn4",classname:"cmdbtn1-4",msg:"video_pv04",fieldtext:"功能按键-4",showarrow:false},
+                {btnid:"page1_btn5",classname:"cmdbtn2-1",msg:"video_pv05",fieldtext:"功能按键-5",showarrow:false},
+                {btnid:"page1_btn6",classname:"cmdbtn2-2",msg:"video_pv06",fieldtext:"功能按键-6",showarrow:false},
+                {btnid:"page1_btn7",classname:"cmdbtn2-3",msg:"video_pv07",fieldtext:"功能按键-7",showarrow:false},
+                {btnid:"page1_btn8",classname:"cmdbtn2-4",msg:"video_pv08",fieldtext:"功能按键-8",showarrow:false},
+            ] 
         };
     },
     computed: {
@@ -241,7 +168,7 @@ export default {
             })
         },
 
-        publicmqtt(msg) {
+        publicmqtt(msg,fieldtext) {
             //cmd$Beijing${GUID}_restartapp 
             //cmd$Beijing${GUID}_video_pv01
             //cmd$Beijing${GUID}_video_pause
@@ -271,7 +198,7 @@ export default {
                         } else {
                             showToast({
                                 "wordBreak": "break-word",
-                                "message": "发送成功",
+                                "message": "发送成功."+fieldtext,
                                 "duration": 800,
                                 'icon': 'success'
                             })
@@ -296,8 +223,14 @@ export default {
             //     } else {
             //         that.showlist[key] = false;
             //     }
-            // }
-            this.publicmqtt(msg);
+            // } 
+            let btnfiledText = ""; 
+            that.btnlist.forEach(function (ele) {
+                if (ele.btnid === btnkey) {
+                    btnfiledText = ele.fieldtext;return;
+                } 
+            });
+            this.publicmqtt(msg, btnfiledText);
         },
 
         clickcontrol(name) {
@@ -308,21 +241,9 @@ export default {
                 case "pause": msg = "video_pause"; break;
                 case "previous": msg = "video_previous"; break;
                 case "next": msg = "video_next"; break;
-            }
-
-            // if (name === "reset") {
-            //     let that = this;
-            //     for (let key in that.showlist) {
-            //     if (key == "page1_btn1") {
-            //         that.showlist[key] = true;
-            //     }else{
-            //         that.showlist[key] = false;
-            //     }
-            // } 
-
-       // }
+            } 
             if(msg) {
-            this.publicmqtt(msg);
+            this.publicmqtt(msg,"");
         }
 
     }
@@ -352,9 +273,10 @@ export default {
     --van-action-bar-height: 60px;
     --van-action-bar-icon-width: 55px;
     --van-action-bar-icon-height: 100%;
-    --van-action-bar-icon-size: 24px;
-    --van-action-bar-icon-font-size: 15px;
+    --van-action-bar-icon-size: 20px;
+    --van-action-bar-icon-font-size: 16px;
     --van-action-bar-icon-text-color: #FFF;
+    --van-action-bar-button-height:40px
 
 }
 
