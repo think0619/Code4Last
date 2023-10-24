@@ -70,14 +70,19 @@ export default {
                 replay: mediaReplayIcon
             },
             btnlist:[
-                {btnid:"page1_btn1",classname:"cmdbtn1-1",msg:"video_pv01",fieldtext:"功能按键-1",showarrow:false},
-                {btnid:"page1_btn2",classname:"cmdbtn1-2",msg:"video_pv02",fieldtext:"功能按键-2",showarrow:false},
-                {btnid:"page1_btn3",classname:"cmdbtn1-3",msg:"video_pv03",fieldtext:"功能按键-3",showarrow:false},
-                {btnid:"page1_btn4",classname:"cmdbtn1-4",msg:"video_pv04",fieldtext:"功能按键-4",showarrow:false},
-                {btnid:"page1_btn5",classname:"cmdbtn2-1",msg:"video_pv05",fieldtext:"功能按键-5",showarrow:false},
-                {btnid:"page1_btn6",classname:"cmdbtn2-2",msg:"video_pv06",fieldtext:"功能按键-6",showarrow:false},
-                {btnid:"page1_btn7",classname:"cmdbtn2-3",msg:"video_pv07",fieldtext:"功能按键-7",showarrow:false},
-                {btnid:"page1_btn8",classname:"cmdbtn2-4",msg:"video_pv08",fieldtext:"功能按键-8",showarrow:false},
+//             1.矿山智算
+// 2.智能井口
+// 3.无源助力穿戴甲
+// 4.瞳现算法
+// 5.全地形车
+                {btnid:"page1_btn1",classname:"cmdbtn1-1",msg:"video_pv01",fieldtext:"1-矿山智算",showarrow:false},
+                {btnid:"page1_btn2",classname:"cmdbtn1-2",msg:"video_pv02",fieldtext:"2-智能井口",showarrow:false},
+                {btnid:"page1_btn3",classname:"cmdbtn1-3",msg:"video_pv03",fieldtext:"3-无源助力穿戴甲",showarrow:false},
+                {btnid:"page1_btn4",classname:"cmdbtn1-4",msg:"video_pv04",fieldtext:"4-瞳现算法",showarrow:false},
+                {btnid:"page1_btn5",classname:"cmdbtn2-1",msg:"video_pv05",fieldtext:"5-全地形车",showarrow:false},
+                {btnid:"page1_btn6",classname:"cmdbtn2-2",msg:"video_pv06",fieldtext:"6-预留视频",showarrow:false},
+                // {btnid:"page1_btn7",classname:"cmdbtn2-3",msg:"video_pv07",fieldtext:"功能按键-7",showarrow:false},
+                // {btnid:"page1_btn8",classname:"cmdbtn2-4",msg:"video_pv08",fieldtext:"功能按键-8",showarrow:false},
             ] 
         };
     },
