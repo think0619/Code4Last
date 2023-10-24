@@ -224,8 +224,9 @@ namespace CtrlVideoCore
             //{
             //    videoView1.MediaPlayer.AspectRatio=String.Format($"{this.Width}:{this.Height}"); 
             //}
-            videoView1.MediaPlayer.AspectRatio=String.Format($"{this.Width}:{this.Height}");
-            //videoView1.MediaPlayer.AspectRatio=String.Format($"{dm.dmPelsWidth}:{dm.dmPelsHeight}");
+           // videoView1.MediaPlayer.AspectRatio=String.Format($"{this.Width}:{this.Height}");
+            videoView1.MediaPlayer.AspectRatio = String.Format($"1920:1080");
+           // videoView1.MediaPlayer.AspectRatio=String.Format($"{dm.dmPelsWidth}:{dm.dmPelsHeight}");
 
             videoView1.Dock = DockStyle.Fill;
            
